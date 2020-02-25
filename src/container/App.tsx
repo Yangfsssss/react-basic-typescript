@@ -6,6 +6,7 @@ import MyHeader from "../components/Header/Header";
 class App extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
+    console.log("[App.js] constructor is running...", props);
 
     // state:用于改变组件内容状态的值（动态）
     // props:用于组件通信进行传值
@@ -18,6 +19,14 @@ class App extends React.Component<any, any> {
       otherState: "anything",
       showPersons: false
     };
+  }
+
+  componentWillMount() {
+    console.log("[App.js] componentWillMount is running...");
+  }
+
+  componentDidMount(){
+    console.log("[App.js] componentDidMount is running...")
   }
 
   switchNameHandler = (newName: string) => {
@@ -64,6 +73,9 @@ class App extends React.Component<any, any> {
   };
 
   render() {
+
+    console.log("[App.js] render is running...")
+
     let persons = null;
     if (this.state.showPersons) {
       persons = (
@@ -75,10 +87,10 @@ class App extends React.Component<any, any> {
       );
     }
 
-
     return (
       <div className="App">
-        <MyHeader 
+        <MyHeader
+          appTitle={this.props.title}
           persons={this.state.persons}
           showPersons={this.state.showPersons}
           clicked={this.togglePersonsHandler}
