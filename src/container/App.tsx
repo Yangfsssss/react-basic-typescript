@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import Persons from "../components/Persons/Persons";
 import MyHeader from "../components/Header/Header";
+import Message from "../Hoc/Message";
 
 class App extends React.Component<any, any> {
   constructor(props: any) {
@@ -96,6 +97,7 @@ class App extends React.Component<any, any> {
           clicked={this.togglePersonsHandler}
         />
         {persons}
+        <Message />
       </div>
     );
   }

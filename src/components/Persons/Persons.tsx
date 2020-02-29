@@ -32,7 +32,7 @@ class Persons extends React.Component<any, any> {
       nextState
     );
 
-    return nextProps.persons == this.props.persons;
+    return nextProps.persons === this.props.persons;
   }
 
   componentWillUpdate(nextProps: any, nextState: any) {
